@@ -1,0 +1,7 @@
+{
+  "id": "local.poe_finder",
+  "name": "Poe Finder",
+  "version": "@PROJECT_VERSION@",
+  "author": "Claude",
+  "description": "Listet alle 60 Poe-Seelen mit Fundort auf und zeigt, welche noch fehlen."
+}
