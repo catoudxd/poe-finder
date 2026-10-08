@@ -25,3 +25,9 @@ add_mod(poe_finder
         SOURCES src/mod.cpp
         MOD_JSON "${CMAKE_CURRENT_BINARY_DIR}/mod.json"
 )
+
+# Das Spiel selbst wird unter MSVC mit /Zc:__cplusplus gebaut. Ohne den Schalter melden die
+# Spiel-Header ein altes C++ und definieren "nullptr" als Makro um.
+if (MSVC)
+    target_compile_options(poe_finder PRIVATE /Zc:__cplusplus)
+endif ()
