@@ -4,6 +4,11 @@
 // Die Flag-Tabelle stammt aus Dusklights eigener Kartenzaehler-Tabelle (d_menu_map_common.cpp)
 // und wurde mit den Poe-Checks des Dusklight-Randomizers (locations.yaml) abgeglichen.
 
+// Standard-Header muessen vor den Spiel-Headern stehen: diese definieren unter MSVC
+// "nullptr" als Makro um, was die Standardbibliothek sonst nicht mehr kompilieren laesst.
+#include <cstdint>
+#include <string>
+
 #include "mods/service.hpp"
 #include "mods/svc/log.h"
 #include "mods/svc/ui.h"
@@ -11,8 +16,10 @@
 #include "d/d_com_inf_game.h"
 #include "d/d_stage.h"
 
-#include <cstdint>
-#include <string>
+// Die Spiel-Header definieren NULL/nullptr als Makros um; fuer den eigenen Code zuruecksetzen.
+#ifdef nullptr
+#undef nullptr
+#endif
 
 DEFINE_MOD();
 IMPORT_SERVICE(LogService, svc_log);
